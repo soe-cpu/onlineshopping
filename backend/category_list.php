@@ -41,14 +41,14 @@ include 'dbconnect.php';
 							$stmt=$pdo->prepare($sql);
 							$stmt->execute();
 							$categories=$stmt->fetchAll();
-
+							$i = 1;
 							foreach ($categories as $category) {
 							
 						?>
 						<tr>
-							<td>1</td>
+							<td><?php echo $i++; ?></td>
 							<td><?php echo $category['name']; ?></td>
-							<td><a href="#" class="btn btn-outline-primary btn-sm">Detail</a> <a href="#" class="btn btn-outline-warning btn-sm">Edit</a> <a href="#" class="btn btn-outline-danger btn-sm">Delete</a></td>
+							<td><a href="#" class="btn btn-outline-primary btn-sm">Detail</a> <a href="#" class="btn btn-outline-warning btn-sm">Edit</a> <a href="category_delete.php?id=<?php echo $category['id']; ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
 
 						</tr>
 
