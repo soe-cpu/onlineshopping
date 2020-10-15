@@ -1,10 +1,11 @@
 <?php 
+session_start();
+if (isset($_SESSION['loginuser']) && $_SESSION['loginuser']['role_name']=="admin") {
 
 include 'include/header.php';
 include 'dbconnect.php';
 
 ?>
-
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -31,7 +32,7 @@ include 'dbconnect.php';
 					<tfoot>
 						<tr>
 							<th>#</th>
-							<th>Category Name</th>
+							<th>SubCategory Name</th>
 							<th>Category Id</th>
 							<th>Option</th>
 						</tr>
@@ -51,7 +52,7 @@ include 'dbconnect.php';
 							<td><?php echo $i++; ?></td>
 							<td><?php echo $subcategory['name']; ?></td>
 							<td><?php echo $subcategory['category_id']; ?></td>
-							<td><a href="#" class="btn btn-outline-primary btn-sm">Detail</a> <a href="#" class="btn btn-outline-warning btn-sm">Edit</a> <a href="subcat_delete.php?id=<?php echo $subcategory['id']; ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
+							<td><!-- <a href="#" class="btn btn-outline-primary btn-sm">Detail</a> --> <a href="subcat_edit.php?id=<?php echo($subcategory['id']); ?>" class="btn btn-outline-warning btn-sm">Edit</a> <a href="subcat_delete.php?id=<?php echo $subcategory['id']; ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
 
 						</tr>
 
@@ -66,5 +67,9 @@ include 'dbconnect.php';
 <?php 
 
 include 'include/footer.php';
+
+}else{
+  header("location:../index.php");
+}
 
 ?>

@@ -1,4 +1,6 @@
 <?php 
+session_start();
+if (isset($_SESSION['loginuser']) && $_SESSION['loginuser']['role_name']=="admin") {
 
 include 'include/header.php';
 include 'dbconnect.php';
@@ -48,7 +50,7 @@ include 'dbconnect.php';
 						<tr>
 							<td><?php echo $i++; ?></td>
 							<td><?php echo $category['name']; ?></td>
-							<td><a href="#" class="btn btn-outline-primary btn-sm">Detail</a> <a href="#" class="btn btn-outline-warning btn-sm">Edit</a> <a href="category_delete.php?id=<?php echo $category['id']; ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
+							<td><!-- <a href="#" class="btn btn-outline-primary btn-sm">Detail</a> --> <a href="category_edit.php?id=<?php echo($category['id']); ?>" class="btn btn-outline-warning btn-sm">Edit</a> <a href="category_delete.php?id=<?php echo $category['id']; ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
 
 						</tr>
 
@@ -59,9 +61,12 @@ include 'dbconnect.php';
 			</div>
 		</div>
 	</div>
-
 <?php 
 
 include 'include/footer.php';
+
+}else{
+  header("location:../index.php");
+}
 
 ?>
