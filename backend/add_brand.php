@@ -3,7 +3,7 @@
 
 	$name = $_POST['name'];
 	$photo = $_FILES['photo'];
-	$basepath="img/items/";
+	$basepath="img/brands/";
 	$fullpath=$basepath.$photo['name'];
 	move_uploaded_file($photo['tmp_name'], $fullpath);
 

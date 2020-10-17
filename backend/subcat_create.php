@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['loginuser']) && $_SESSION['loginuser']['role_name']=="admin") {
 include 'include/header.php';
-
+include 'dbconnect.php';
 ?>
 
 
@@ -20,9 +20,25 @@ include 'include/header.php';
 					<input type="text" name="name" id="name" class="form-control">
 				</div>
 				<div class="form-group">
+					<label for="category">Categories</label>
+					<select class="form-control" name="category_id" id="category_id">
+						<option>Choose...</option>
+						<?php 
+							$sql = "SELECT * FROM categories";
+							$stmt = $pdo->prepare($sql);
+							$stmt->execute();
+							$categories = $stmt->fetchAll();
+							var_dump($categories);
+							foreach ($categories as $category) {
+						 ?>
+						 <option value="<?php echo($category['id']); ?>"><?php echo $category['name']; ?></option>
+						<?php } ?>
+					</select>
+				</div>
+				<!-- <div class="form-group">
 					<label for="category_id">Category_id</label>
 					<input type="text" name="category_id" id="category_id" class="form-control">
-				</div>
+				</div> -->
 				<input type="submit" class="btn btn-primary float-right" value="Save">
 
 			</form>
