@@ -17,7 +17,7 @@ include 'dbconnect.php';
 
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+			<h6 class="m-0 font-weight-bold text-primary">Item Table</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -68,7 +68,7 @@ include 'dbconnect.php';
 
 								  ?>
 							</td>
-							<td><a href="item_detail.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-primary btn-sm">Detail</a> <a href="item_edit.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-warning btn-sm">Edit</a> <a href="item_delete.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
+							<td><a href="item_detail.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-primary btn-sm">Detail</a> <a href="item_edit.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-warning btn-sm">Edit</a> <a href="item_delete.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
 
 						</tr>
 

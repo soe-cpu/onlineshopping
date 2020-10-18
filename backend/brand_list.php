@@ -50,7 +50,7 @@ include 'dbconnect.php';
 						<tr>
 							<td><?php echo $i++; ?></td>
 							<td><?php echo $brand['name']; ?></td>
-							<td><!-- <a href="" class="btn btn-outline-primary btn-sm">Detail</a>  --><a href="brand_edit.php?id=<?php echo $brand['id']; ?>" class="btn btn-outline-warning btn-sm">Edit</a> <a href="brand_delete.php?id=<?php echo $brand['id']; ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
+							<td><!-- <a href="" class="btn btn-outline-primary btn-sm">Detail</a>  --><a href="brand_edit.php?id=<?php echo $brand['id']; ?>" class="btn btn-outline-warning btn-sm">Edit</a> <a href="brand_delete.php?id=<?php echo $brand['id']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
 
 						</tr>
 

@@ -47,12 +47,12 @@
       </div>
     </div>
   </section>
-  <!-- Discount -->
+  <!--New Arrival -->
   <section id="Services" class="content-section text-center">
     <div class="container">
       <div class="block-heading">        
         <div class="container my-3">
-          <h2 class="animate__animated animate__bounce">NEW ARRIVAL</h2>
+          <h1 class="animate__animated animate__bounce main-color">NEW ARRIVAL</h1>
           <hr class="divider">
         </div>
       </div>
@@ -62,10 +62,13 @@
          ?>
         <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-6 py-2">
          <div class="card se">
-            <div class="container-s">
+            <div class="container-s inner">
               <img src="backend/<?= $item['photo'] ?>" alt="Card image cap" style="height: 250px;">
+              <div class="overlay">
+                <button class="btn main-bg border-radius view_detail" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-price="<?= $item['price'] ?>" data-discount="<?= $item['discount'] ?>" data-brand="<?= $item['brand_name'] ?>" data-subcategory="<?= $item['sub_name'] ?>" data-description="<?= $item['description'] ?>" data-photo="<?= $item['photo'] ?>"><i class="far fa-eye"></i></button>
+              </div>
               <div class="content">
-                <h5 class="float-left px-2 my-2">Watch</h5>
+                <h6 class="float-left px-2 my-2"><?php echo $item['name']; ?></h6>
               </div>              
             </div>           
             <div class="card-body ">
@@ -77,7 +80,7 @@
                   <div class="col-9">
                     <?php  
                     if ($item['discount']==0) {
-                      echo $item['price'];                  
+                      echo $item['price']." MMK";                  
                     ?>
                     <?php 
                     }else{
@@ -90,10 +93,13 @@
                   </div>
                   <div class="col-9">
                     <?php  
-                    if (isset($item['discount'])) {
-                      echo $item['discount']." MMK";    
-                      }             
-                     ?>
+                    if ($item['discount']==0) {
+                      echo "&nbsp;";                  
+                    ?>
+                    <?php 
+                    }else{
+                      echo $item['discount']." MMK";
+                    } ?>
                   </div>                                      
                 </div>
               </div>                                                
@@ -104,7 +110,7 @@
                   <button class="btn btn-outline-danger btn-sm float-left"><i class="fas fa-heart"></i></button>
                 </div>
                 <div class="col-md-6">
-                  <button class="btn btn-outline-c btn-sm float-right"><i class="fas fa-cart-plus item-add addtocart"></i></button>
+                  <a href="javascript:void(0)" class="btn btn-outline-c btn-sm float-right item-add addtocart" data-id="<?= $item['id']; ?>" data-name="<?= $item['name']; ?>" data-price="<?= $item['price']; ?>" data-discount="<?= $item['discount']; ?>"><i class="fas fa-cart-plus item-add "></i></a>
                 </div>
               </div>             
             </div>
@@ -114,201 +120,11 @@
       </div>
       <div class="row">
         <div class="col-xl-12  py-4">
-          <button class="btn btn-outline-c">See More</button>
+          <a href="product.php" class="btn btn-outline-c">See More</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- NEW ARRIVAL -->
-  <!-- <section class="content-section text-center bg-se">
-    <div class="container">
-      <h2 class="text-center text-dark py-2 animate__animated animate__bounce">NEW ARRIVAL</h2>
-      <div class="row my-2">
-        <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-6 py-2">
-         <div class="card se">
-            <div class="container-s">
-              <img class="card-img-top animate__animated animate__fadeIn" src="img/w.jpg" alt="Card image cap" height="200">
-              <div class="content">
-                <h5 class="float-left px-2 my-2">Watch</h5>
-              </div>              
-            </div>           
-            <div class="card-body">
-              <div class="container">
-                <div class="row">
-                  <div class="col-3">
-                    <h5 class="float-left">Price:</h5>
-                  </div>
-                  <div class="col-9">
-                    <b class="float-right">500000 MMK</b>
-                  </div>                                      
-                </div>
-              </div>                                                
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-outline-c btn-block">Add Cart<i class="fa fa-shopping-cart  float-right py-1"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-6 py-2">
-         <div class="card se">
-            <div class="container-s">
-              <img class="card-img-top animate__animated animate__fadeIn" src="img/w.jpg" alt="Card image cap" height="200">
-              <div class="content">
-                <h5 class="float-left px-2 my-2">Watch</h5>
-              </div>              
-            </div>           
-            <div class="card-body">
-              <div class="container">
-                <div class="row">
-                  <div class="col-3">
-                    <h5 class="float-left">Price:</h5>
-                  </div>
-                  <div class="col-9">
-                    <b class="float-right">500000 MMK</b>
-                  </div>                                      
-                </div>
-              </div>                                                
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-outline-c btn-block">Add Cart<i class="fa fa-shopping-cart  float-right py-1"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-6 py-2">
-         <div class="card se">
-            <div class="container-s">
-              <img class="card-img-top animate__animated animate__fadeIn" src="img/w.jpg" alt="Card image cap" height="200">
-              <div class="content">
-                <h5 class="float-left px-2 my-2">Watch</h5>
-              </div>              
-            </div>           
-            <div class="card-body">
-              <div class="container">
-                <div class="row">
-                  <div class="col-3">
-                    <h5 class="float-left">Price:</h5>
-                  </div>
-                  <div class="col-9">
-                    <b class="float-right">500000 MMK</b>
-                  </div>                                      
-                </div>
-              </div>                                                
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-outline-c btn-block">Add Cart<i class="fa fa-shopping-cart  float-right py-1"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-6 py-2">
-         <div class="card se">
-            <div class="container-s">
-              <img class="card-img-top animate__animated animate__fadeIn" src="img/w.jpg" alt="Card image cap" height="200">
-              <div class="content">
-                <h5 class="float-left px-2 my-2">Watch</h5>
-              </div>              
-            </div>           
-            <div class="card-body">
-              <div class="container">
-                <div class="row">
-                  <div class="col-3">
-                    <h5 class="float-left">Price:</h5>
-                  </div>
-                  <div class="col-9">
-                    <b class="float-right">500000 MMK</b>
-                  </div>                                      
-                </div>
-              </div>                                                
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-outline-c btn-block">Add Cart<i class="fa fa-shopping-cart  float-right py-1"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-12  py-4">
-          <button class="btn btn-outline-c">See More</button>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  <!-- <section class="content-section text-center" id="Portfolio">
-    <div class="container">
-      <div class="block-heading">
-        <h2>Our Product</h2>
-      </div>
-      <div class="portfolio-wrapper clearfix">
-        <a class="each-portfolio" data-fancybox="gallery" href="img/w1.jpg">
-          <div class="content hover-cont-wrap">
-            <div class="content-overlay"></div>
-            <img class="content-image" src="img/w1.jpg">
-            <div class="content-details fadeIn-bottom">
-              <h5 class="p-title">Watch</h5>
-              <p class="p-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <span class="zoom"><i class="fa fa-search-plus"></i></span>
-            </div>
-          </div>
-        </a>
-        <a class="each-portfolio" data-fancybox="gallery" href="img/w.jpg">
-          <div class="content hover-cont-wrap">
-            <div class="content-overlay"></div>
-            <img class="content-image" src="img/w.jpg">
-            <div class="content-details fadeIn-bottom">
-              <h5 class="p-title">Watch</h5>
-              <p class="p-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <span class="zoom"><i class="fa fa-search-plus"></i></span>
-            </div>
-          </div>
-        </a>
-        <a class="each-portfolio" data-fancybox="gallery" href="img/w1.jpg">
-          <div class="content hover-cont-wrap">
-            <div class="content-overlay"></div>
-            <img class="content-image" src="img/w1.jpg">
-            <div class="content-details fadeIn-bottom">
-              <h5 class="p-title">Title</h5>
-              <p class="p-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <span class="zoom"><i class="fa fa-search-plus"></i></span>
-            </div>
-          </div>
-        </a>
-        <a class="each-portfolio" data-fancybox="gallery" href="img/w1.jpg">
-          <div class="content hover-cont-wrap">
-            <div class="content-overlay"></div>
-            <img class="content-image" src="img/w1.jpg">
-            <div class="content-details fadeIn-bottom">
-              <h5 class="p-title">Title</h5>
-              <p class="p-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <span class="zoom"><i class="fa fa-search-plus"></i></span>
-            </div>
-          </div>
-        </a>
-        <a class="each-portfolio" data-fancybox="gallery" href="img/w1.jpg">
-          <div class="content hover-cont-wrap">
-            <div class="content-overlay"></div>
-            <img class="content-image" src="img/w1.jpg">
-            <div class="content-details fadeIn-bottom">
-              <h5 class="p-title">Title</h5>
-              <p class="p-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <span class="zoom"><i class="fa fa-search-plus"></i></span>
-            </div>
-          </div>
-        </a>
-        <a class="each-portfolio" data-fancybox="gallery" href="img/w1.jpg">
-          <div class="content hover-cont-wrap">
-            <div class="content-overlay"></div>
-            <img class="content-image" src="img/w1.jpg">
-            <div class="content-details fadeIn-bottom">
-              <h5 class="p-title">Title</h5>
-              <p class="p-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <span class="zoom"><i class="fa fa-search-plus"></i></span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section> -->
-
-
   <?php 
     include "include/footer.php";
 

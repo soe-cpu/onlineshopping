@@ -9,6 +9,9 @@ body {
   font-family: 'Cambria,Arial,Sanseri,Source Sans Pro', sans-serif;
   overflow-x: hidden;
 }
+.pd{
+	padding-top: 100px;
+}
 .hr{
 	background-color: #02ccba;
 }
@@ -43,8 +46,50 @@ body {
 .show > .btn-outline-c.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
+.inner {
+  position: relative;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  color: #02ccba; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 50px;
+  text-align: center;
+}
+
+.inner:hover .overlay {
+  opacity: 1;
+  transform: translateY(-30%);
+
+}
+ 
+.inner{
+    overflow: hidden;
+}
+ 
+.inner img{
+    transition: all 1.5s ease;
+}
+ 
+.inner:hover img{
+    transform: scale(1.1);
+}
+
+
 .bg-se{
-	background-color: #ebf0ec;
+	background-color: #b4bfb7;
 }
 .card-w{
 	height: 100px;
@@ -140,7 +185,7 @@ body {
 }
 
 .header__menu ul li a {
-/*  font-size: 18px;*/
+  font-size: 18px;
   color: #02ccba;
   display: block;
   /*font-weight: 600;*/
@@ -770,7 +815,7 @@ span {
 footer.footer {
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #fafafa;
+  background-color: #f2f7f4;
 }
 footer.footer .social-link {
   display: block;
@@ -796,4 +841,47 @@ footer.footer p.small a:hover, footer.footer p.small a.focus {
 #Contact .address-block span {
 	text-transform: none;
 }
+.header__menu ul li a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #02ccba;
+  content: "";
+  -webkit-transition: all, 0.5s;
+  -o-transition: all, 0.5s;
+  transition: all, 0.5s;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+.foo a{
+	background-color: #f2f7f4;
+	border-radius: none;
+	color: #02ccba;
+
+}
+.foo ul li {
+	color: #02ccba;
+  list-style: none;
+  display: inline-block;
+  margin-right: 15px;
+  position: relative;
+  background-color: #f2f7f4;
+  border-radius: none;
+}
+
+.foo ul li.active a:after {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.foo ul li:hover a:after {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
 /* Styles Begins */

@@ -25,16 +25,15 @@
   <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
   <link href="styles/custom-responsive-styles.css" rel="stylesheet" type="text/css">
   <!--scripts-->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/all-plugins.js"></script>
-  <script type="text/javascript" src="js/plugins-activate.js"></script>
+  <!-- <script type="text/javascript" src="js/all-plugins.js"></script>
+  <script type="text/javascript" src="js/plugins-activate.js"></script> -->
 </head>
 
 <body id="page-top">
   <!-- Navigation -->
   <section>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top menu">
-      <a class="navbar-brand" href="#"><h5 class="main-color">Shopping</h5></a>
+      <a class="navbar-brand" href="#"><h3 class="main-color">Shopping</h3></a>
       <button class="navbar-toggler main-bg" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars"></span>
       </button>
@@ -71,11 +70,12 @@
 
            ?>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php echo $_SESSION['loginuser']['name']; ?>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="backend/index.php">Profile</a>
-              <a class="dropdown-item" href="backend/logout.php">Logout</a>                 
+              <a class="dropdown-item" href="backend/logout.php">Logout</a> 
             </div>
           </li>
           <?php 
@@ -96,23 +96,6 @@
                 <i class="fas fa-cart-plus text-dark"></i>
               </span>
         </a>
-        <!-- <button class="btn btn-outline-c" id="count"><i class="fas fa-cart-plus"></i> <sup id="item_count"></sup></button>   -->      
-        <!-- <form class="form-inline my-2 my-lg-0"> -->
-          <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-c my-2 my-sm-0" type="submit">Search</button> -->
-          <!-- <a class="btn btn-outline-c " id="count">
-            <span class="fa-stack has-badge" id="item_count">
-                <i class="fa fa-shopping-cart"></i>
-              </span></a>
- -->          <!-- <li class="nav-item">
-            <a href="checkout.php" class="nav-link" id="count">
-              <span class="p1 fa-stack has-badge" id="item_count">
-                <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse"></i>
-              </span>
-            
-            </a>
-          </li> -->
-        <!-- </form> -->
       </div>
     </nav>
   </section>

@@ -13,7 +13,7 @@ $subcategories=$stmt->fetchAll();
 
 <section class="car-section">
 <div class="container my-5">
-  <h1 class="animate__animated animate__bounce">NEW ARRIVAL</h1>
+  <h1 class="animate__animated animate__bounce main-color">NEW ARRIVAL</h1>
   <hr class="divider">
 </div>
 
@@ -21,7 +21,7 @@ $subcategories=$stmt->fetchAll();
   <div class="row">
     <div class="col-md-3 py-3">
       <div class="card">
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush main-color foo">
           <?php  
           foreach ($subcategories as $subcategory) {
 
@@ -48,14 +48,17 @@ $subcategories=$stmt->fetchAll();
           foreach ($items as $item) {   
             ?>
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-6 py-2">
-         <div class="card se">
-            <div class="container-s">
-              <img class="card-img-top animate__animated animate__fadeIn" src="backend/<?= $item['photo'] ?>" alt="Card image cap">
-              <div class="content">
-                <h5 class="float-left px-2 my-2">Watch</h5>
-              </div>              
-            </div>           
-            <div class="card-body ">
+             <div class="card se">
+              <div class="container-s inner">
+                <img src="backend/<?= $item['photo'] ?>" alt="Card image cap" style="height: 250px;">
+                <div class="overlay">
+                  <button class="btn main-bg border-radius view_detail" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-price="<?= $item['price'] ?>" data-discount="<?= $item['discount'] ?>" data-brand="<?= $item['brand_name'] ?>" data-subcategory="<?= $item['sub_name'] ?>" data-description="<?= $item['description'] ?>" data-photo="<?= $item['photo'] ?>"><i class="far fa-eye"></i></button>
+                </div>
+                <div class="content">
+                  <h6 class="float-left px-2 my-2"><?php echo $item['name']; ?></h6>
+                </div>              
+              </div>           
+              <div class="card-body ">
               <div class="container">
                 <div class="row">
                   <div class="col-3">
@@ -64,7 +67,7 @@ $subcategories=$stmt->fetchAll();
                   <div class="col-9">
                     <?php  
                     if ($item['discount']==0) {
-                      echo $item['price'];                  
+                      echo $item['price']." MMK";                  
                     ?>
                     <?php 
                     }else{
@@ -77,35 +80,38 @@ $subcategories=$stmt->fetchAll();
                   </div>
                   <div class="col-9">
                     <?php  
-                    if (isset($item['discount'])) {
-                      echo $item['discount']." MMK";    
-                      }             
-                     ?>
+                    if ($item['discount']==0) {
+                      echo "&nbsp;";                  
+                    ?>
+                    <?php 
+                    }else{
+                      echo $item['discount']." MMK";
+                    } ?>
                   </div>                                      
                 </div>
               </div>                                                
             </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-md-6">
-                  <button class="btn btn-outline-danger btn-rounded item-add float-left"><i class="fas fa-heart"></i></button>
-                </div>
-                <div class="col-md-6">
-                  <button class="btn btn-outline-c float-right"><i class="fas fa-cart-plus addtocart"></i></button>
-                </div>
-              </div>             
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-md-6">
+                    <button class="btn btn-outline-danger btn-sm float-left"><i class="fas fa-heart"></i></button>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="javascript:void(0)" class="btn btn-outline-c btn-sm float-right item-add addtocart" data-id="<?= $item['id']; ?>" data-name="<?= $item['name']; ?>" data-price="<?= $item['price']; ?>" data-discount="<?= $item['discount']; ?>"><i class="fas fa-cart-plus item-add "></i></a>
+                  </div>
+                </div>             
+              </div>
             </div>
           </div>
-        </div>
         <?php } 
       }?>
       </div>
     </div>
   </div>
   
-  <div class="text-center my-5">
+  <!-- <div class="text-center my-5">
     <a href="product.html" class="btn btn-outline-c btn-lg">View More</a>
-  </div>
+  </div> -->
 </div>
 
 <hr class="py-3">

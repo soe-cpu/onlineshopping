@@ -234,12 +234,15 @@ $(document).ready(function(){
   $('.buy_now').on('click',function(){
     var notes = $('.notes').val();
     var total = $('.total').val();
+
+    console.log(notes+total)
     var shopString = localStorage.getItem("heinshop");
     if (shopString) {
       var shopArray = JSON.parse(shopString);
 
       $.post('order.php',{shop_arr:shopArray,notes:notes,total:total},function(response){
         if (response) {
+          console.log(response);
           localStorage.clear();
           getData();
           location.href="order_success.php"

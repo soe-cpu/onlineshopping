@@ -12,10 +12,13 @@ $sql="SELECT items.*,brands.name as brand_name,subcategories.name as sub_name,ca
 
 ?>
 
-<section class="car-section my-4">
-  <div class="container">
-      <div class="block-heading">
-        <h2 class="animate__animated animate__bounce">NEW ARRIVAL</h2>
+<section id="Services" class="content-section text-center">
+    <div class="container">
+      <div class="block-heading">        
+        <div class="container my-3">
+          <h1 class="animate__animated animate__bounce main-color">NEW ARRIVAL</h1>
+          <hr class="divider">
+        </div>
       </div>
       <div class="row rcorners my-2">
         <?php 
@@ -23,14 +26,17 @@ $sql="SELECT items.*,brands.name as brand_name,subcategories.name as sub_name,ca
          ?>
         <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-6 py-2">
          <div class="card se">
-            <div class="container-s">
-              <img class="card-img-top animate__animated animate__fadeIn" src="backend/<?= $item['photo'] ?>" alt="Card image cap" height="200">
+            <div class="container-s inner">
+              <img src="backend/<?= $item['photo'] ?>" alt="Card image cap" style="height: 250px;">
+              <div class="overlay">
+                <button class="btn main-bg border-radius view_detail" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-price="<?= $item['price'] ?>" data-discount="<?= $item['discount'] ?>" data-brand="<?= $item['brand_name'] ?>" data-subcategory="<?= $item['sub_name'] ?>" data-description="<?= $item['description'] ?>" data-photo="<?= $item['photo'] ?>"><i class="far fa-eye"></i></button>
+              </div>
               <div class="content">
-                <h5 class="float-left px-2 my-2">Watch</h5>
+                <h6 class="float-left px-2 my-2"><?php echo $item['name']; ?></h6>
               </div>              
             </div>           
             <div class="card-body ">
-              <div class="container card-w">
+              <div class="container">
                 <div class="row">
                   <div class="col-3">
                     <h6 class="float-left">Price:</h6>
@@ -38,7 +44,7 @@ $sql="SELECT items.*,brands.name as brand_name,subcategories.name as sub_name,ca
                   <div class="col-9">
                     <?php  
                     if ($item['discount']==0) {
-                      echo $item['price'];                  
+                      echo $item['price']." MMK";                  
                     ?>
                     <?php 
                     }else{
@@ -51,10 +57,13 @@ $sql="SELECT items.*,brands.name as brand_name,subcategories.name as sub_name,ca
                   </div>
                   <div class="col-9">
                     <?php  
-                    if (isset($item['discount'])) {
-                      echo $item['discount']." MMK";    
-                      }             
-                     ?>
+                    if ($item['discount']==0) {
+                      echo "&nbsp;";                  
+                    ?>
+                    <?php 
+                    }else{
+                      echo $item['discount']." MMK";
+                    } ?>
                   </div>                                      
                 </div>
               </div>                                                
@@ -62,10 +71,10 @@ $sql="SELECT items.*,brands.name as brand_name,subcategories.name as sub_name,ca
             <div class="card-footer">
               <div class="row">
                 <div class="col-md-6">
-                  <button class="btn btn-outline-danger btn-rounded"><i class="fas fa-heart"></i></button>
+                  <button class="btn btn-outline-danger btn-sm float-left"><i class="fas fa-heart"></i></button>
                 </div>
                 <div class="col-md-6">
-                  <button class="btn btn-outline-c "><i class="fas fa-cart-plus"></i></button>
+                  <a href="javascript:void(0)" class="btn btn-outline-c btn-sm float-right item-add addtocart" data-id="<?= $item['id']; ?>" data-name="<?= $item['name']; ?>" data-price="<?= $item['price']; ?>" data-discount="<?= $item['discount']; ?>"><i class="fas fa-cart-plus item-add "></i></a>
                 </div>
               </div>             
             </div>
@@ -73,13 +82,13 @@ $sql="SELECT items.*,brands.name as brand_name,subcategories.name as sub_name,ca
         </div>
         <?php } ?>
       </div>
-      <!-- <div class="row">
+<!--       <div class="row">
         <div class="col-xl-12  py-4">
-          <button class="btn btn-outline-c">See More</button>
+          <a href="product.php" class="btn btn-outline-c">See More</a>
         </div>
       </div> -->
     </div>
-</section>
+  </section>
 
 
 <?php 

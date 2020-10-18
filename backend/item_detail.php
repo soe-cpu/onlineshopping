@@ -28,10 +28,10 @@ $item = $stmt->fetch(PDO::FETCH_ASSOC);
 				<img src="<?php echo $item['photo']; ?>" class="img-fluid">
 			</div>
 			<div class="col-md-8">
-				<h3>ITEM NAME:<?php echo $item['name']; ?></h3>
-				<h3>ITEM BRAND:<?php echo $item['brand_name']; ?></h3>
-				<h3>ITEM SUBCATEGORY:<?php echo $item['sub_name']; ?></h3>
-				<h3>Item Subcategory: <?php echo $item['c_name']; ?></h3>
+				<h3>ITEM NAME: <?php echo $item['name']; ?></h3>
+				<h3>ITEM BRAND: <?php echo $item['brand_name']; ?></h3>
+				<h3>ITEM SUBCATEGORY: <?php echo $item['sub_name']; ?></h3>
+				<h3>ITEM CATEGORY: <?php echo $item['c_name']; ?></h3>
 				<h3>
 					ITEM PRICE:
 					<?php 

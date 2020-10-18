@@ -6,7 +6,8 @@
     <div class="container py-5">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="button text-center">About Us</h1>
+          <h1 class="button text-center animate__animated animate__bounce main-color">About Us</h1>
+          <hr class="divider">
         </div>        
       </div>
       <div class="row my-6 py-3">
@@ -36,10 +37,11 @@
           </p>
         </div>
       </div>
+      <hr class="divider">
       <!-- <div class="row my-5">
                
       </div> -->
-      <h1 class="button text-center py-3">OUR TEAM</h1>
+      <h1 class="button text-center py-3 animate__animated animate__bounce main-color">OUR TEAM</h1>
       <div class="row rcorners ">
         <div class="col-md-3">
           <div class="card-group">
